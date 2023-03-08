@@ -1,0 +1,44 @@
+class Solution {
+    public boolean isValid(String s) {
+            boolean bool;
+            int num = 0;
+            int a=0, b=0, c=0, d=0, e=0, f=0;
+            int result = s.length();
+            char[] s_array= s.toCharArray();
+           
+            if(result <= 10000 && result >= 1) {
+                for(num = 0; num < result; num++){
+                     if(s_array[num] == '('){
+                         a = a + 1;
+                     }else if(s_array[num] == ')'){
+                         b = b + 1;
+                     }else if(s_array[num] == '{'){
+                         c = c + 1;
+                     }else if(s_array[num] == '}'){
+                         d = d + 1;
+                     }else if(s_array[num] == '['){
+                         e = e + 1;
+                     }else if (s_array[num] == ']'){
+                         f = f + 1;
+                     } else{
+                         return false;
+                     }
+                     
+
+                    if(b>a || d>c || f>e){
+                        return false;
+                    }
+                 }
+               
+                if (a==b && c==d && e==f){
+                    bool = true;
+                }else {
+                    bool = false;
+                }
+
+            }else {
+                bool = false;
+            }
+            return bool;
+    }
+}
